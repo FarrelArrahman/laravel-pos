@@ -35,6 +35,8 @@ class SaleController extends Controller
 
 
     public function store(StoreSaleRequest $request) {
+        dd($request->all());
+        
         DB::transaction(function () use ($request) {
             $due_amount = $request->total_amount - $request->paid_amount;
 

@@ -31,6 +31,11 @@ class ProductController extends Controller
 
 
     public function store(StoreProductRequest $request) {
+        $request->merge([
+            'product_cost' => str_replace('.', '', $request->product_cost),
+            'product_price' => str_replace('.', '', $request->product_price)
+        ]);
+        
         $product = Product::create($request->except('document'));
 
         if ($request->has('document')) {
@@ -60,6 +65,11 @@ class ProductController extends Controller
 
 
     public function update(UpdateProductRequest $request, Product $product) {
+        $request->merge([
+            'product_cost' => str_replace('.', '', $request->product_cost),
+            'product_price' => str_replace('.', '', $request->product_price)
+        ]);
+        
         $product->update($request->except('document'));
 
         if ($request->has('document')) {

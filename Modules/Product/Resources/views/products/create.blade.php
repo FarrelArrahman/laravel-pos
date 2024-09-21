@@ -222,11 +222,13 @@
                 prefix:'{{ settings()->currency->symbol }}',
                 thousands:'{{ settings()->currency->thousand_separator }}',
                 decimal:'{{ settings()->currency->decimal_separator }}',
+                precision: 0,
             });
             $('#product_price').maskMoney({
                 prefix:'{{ settings()->currency->symbol }}',
                 thousands:'{{ settings()->currency->thousand_separator }}',
                 decimal:'{{ settings()->currency->decimal_separator }}',
+                precision: 0,
             });
 
             $('#product-form').submit(function () {

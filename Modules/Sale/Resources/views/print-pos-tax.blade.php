@@ -49,8 +49,8 @@
         <!-- Header -->
         <div class="header">
             <h1>Faktur Penjualan</h1>
-            <p>{{ settings()->company_name }}</p>
-            <p>{{ settings()->company_address }}</p>
+            <p>INAURA</p>
+            <p>Kawasan Sumantri, Husein Commercial TBF-1020, Al. Sudirman, Bekasi</p>
         </div>
 
         <!-- Details -->
@@ -58,14 +58,15 @@
             <tr>
                 <td>
                     <strong>Kepada:</strong><br>
-                    {{ $sale->customer_name }}<br>
-                    {{ $sale->customer_address }}<br>
+                    Putra Intan Salon<br>
+                    Jl. Kubu Iwa No. 3x, Gianyar Bali 80511<br>
+                    Indonesia
                 </td>
                 <td>
-                    <strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($sale->date)->format('d M, Y') }}<br>
-                    <strong>Nomor:</strong> {{ $sale->reference }}<br>
-                    <!-- <strong>Pengiriman:</strong> FOB<br>
-                    <strong>Term:</strong> C.O.D<br> -->
+                    <strong>Tanggal:</strong> 13 Juni 2024<br>
+                    <strong>Nomor:</strong> SL2024-06-01593<br>
+                    <strong>Pengiriman:</strong> FOB<br>
+                    <strong>Term:</strong> C.O.D<br>
                 </td>
             </tr>
         </table>
@@ -74,46 +75,56 @@
         <table class="items">
             <tr>
                 <th>Kode Barang</th>
+                <th>No. Batch</th>
                 <th>Nama Barang</th>
                 <th>Kuantitas</th>
                 <th>Harga @</th>
                 <th>Total Harga</th>
             </tr>
-            @foreach($sale->saleDetails as $saleDetail)
             <tr>
-                <td>{{ $saleDetail->product->product_code }}</td>
-                <td>{{ $saleDetail->product->product_name }}</td>
-                <td>{{ $saleDetail->quantity }}</td>
-                <td>{{ format_currency($saleDetail->price) }}</td>
-                <td>{{ format_currency($saleDetail->sub_total) }}</td>
+                <td>FC-30956417</td>
+                <td>24100050A</td>
+                <td>Inaura Vitamin Drop Colored (blue)</td>
+                <td>8</td>
+                <td>Rp 10.000</td>
+                <td>Rp 2.160.000</td>
             </tr>
-            @endforeach
+            <tr>
+                <td>FG-30952417</td>
+                <td>23110R05A</td>
+                <td>Inaura Vitamin Drop Colored (orange)</td>
+                <td>8</td>
+                <td>Rp 10.000</td>
+                <td>Rp 2.160.000</td>
+            </tr>
         </table>
 
         <!-- Summary and Additional Info -->
         <table class="summary">
             <tr>
                 <td><strong>Sub Total</strong></td>
-                <td>{{ format_currency($sale->paid_amount) }}</td>
+                <td>Rp 6.482.103</td>
             </tr>
             <tr>
-                <td><strong>Diskon @if($sale->discount_percentage) (15%) @endif</strong></td>
-                <td>{{ format_currency($sale->discount_amount) }}</td>
+                <td><strong>Diskon (15%)</strong></td>
+                <td>Rp 972.310</td>
             </tr>
-            @if($sale->tax_percentage)
             <tr>
-                <td><strong>Tax ({{ $sale->tax_percentage }}%)</strong></td>
-                <td>{{ format_currency($sale->tax_amount) }}</td>
+                <td><strong>PPN (11%)</strong></td>
+                <td>Rp 715.837</td>
             </tr>
-            @endif
+            <tr>
+                <td><strong>Biaya Lain-lain</strong></td>
+                <td>Rp 0</td>
+            </tr>
             <tr>
                 <td><strong>Total</strong></td>
-                <td>{{ format_currency($sale->total_amount) }}</td>
+                <td>Rp 5.508.000</td>
             </tr>
-            <!-- <tr>
+            <tr>
                 <td><strong>Terbilang:</strong></td>
                 <td>Lima juta lima ratus delapan ribu rupiah</td>
-            </tr> -->
+            </tr>
         </table>
 
         <!-- Payment Information -->
@@ -128,18 +139,26 @@
         </p>
 
         <!-- Signatures -->
-        <table class="summary" style="border-collapse: collapse;">
-            <tr>
-                <td style="text-align: center;"><strong>Disiapkan oleh</strong></td>
-                <td style="text-align: center;"><strong>Disetujui oleh</strong></td> 
-                <td style="text-align: center;"><strong>Dikirim oleh</strong></td> 
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td> 
-                <td>&nbsp;</td> 
-            </tr>
-        </table>
+        <div class="signature-section">
+            <div>
+                Disiapkan Oleh<br>
+                <br><br>
+                (Fakri)<br>
+                Tgl: _______
+            </div>
+            <div>
+                Disetujui Oleh<br>
+                <br><br>
+                (_________)<br>
+                Tgl: _______
+            </div>
+            <div>
+                Dikirim Oleh<br>
+                <br><br>
+                (_________)<br>
+                Tgl: _______
+            </div>
+        </div>
     </div>
 </body>
 </html>
