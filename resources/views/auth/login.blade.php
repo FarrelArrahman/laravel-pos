@@ -83,8 +83,7 @@
             </div>
 
             <p class="text-center mt-5 lead">
-                Developed By
-                <a href="https://fahimanzam.netlify.app" class="font-weight-bold text-primary">Fahim Anzam Dip</a>
+                Copyright &copy; <?= date('Y') ?> <span class="font-weight-bold text-primary">Askara Bali</span>
             </p>
         </div>
     </div>
