@@ -119,12 +119,12 @@
         <!-- Payment Information -->
         <p>Pembayaran mohon ditransfer ke:</p>
         <p>
-            CV INAURA ANUGERAH<br>
-            Bank: BNI<br>
-            No. Rek: 0388-11100-237082
+            Pande Nyaman Putra Widiantara<br>
+            Bank: BCA<br>
+            No. Rek: 4160732682
         </p>
         <p>
-            Kirim bukti transfer via WhatsApp: 0815-5848-4525
+            Kirim bukti transfer via WhatsApp: 0887-3442-033
         </p>
 
         <!-- Signatures -->
@@ -135,9 +135,9 @@
                 <td style="text-align: center;"><strong>Dikirim oleh</strong></td> 
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td> 
-                <td>&nbsp;</td> 
+                <td>&nbsp;<br><br><br></td>
+                <td>&nbsp;<br><br><br></td> 
+                <td>&nbsp;<br><br><br></td> 
             </tr>
         </table>
     </div>
