@@ -21,6 +21,9 @@ Route::group(['middleware' => 'auth'], function () {
     //Sales Report
     Route::get('/sales-report', 'ReportsController@salesReport')
         ->name('sales-report.index');
+    //Tax Report
+    Route::get('/tax-report', 'ReportsController@taxReport')
+    ->name('tax-report.index');
     //Purchases Report
     Route::get('/purchases-report', 'ReportsController@purchasesReport')
         ->name('purchases-report.index');
