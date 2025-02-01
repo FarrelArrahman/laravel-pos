@@ -49,7 +49,7 @@
         <!-- Header -->
         <div class="header">
             <h1>Faktur Penjualan</h1>
-            <p>{{ settings()->company_name }}</p>
+            <p style="font-size: 36px; margin-top: 20px; margin-bottom: 20px;">{{ settings()->company_name }}</p>
             <p>{{ settings()->company_address }}</p>
         </div>
 
@@ -59,7 +59,7 @@
                 <td>
                     <strong>Kepada:</strong><br>
                     {{ $sale->customer_name }}<br>
-                    {{ $sale->customer_address }}<br>
+                    {{ $sale->customer->address }}<br>
                 </td>
                 <td>
                     <strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($sale->date)->format('d M, Y') }}<br>
@@ -94,10 +94,10 @@
         <table class="summary">
             <tr>
                 <td><strong>Sub Total</strong></td>
-                <td>{{ format_currency($sale->paid_amount) }}</td>
+                <td>{{ format_currency($sale->total_amount + $sale->discount_amount) }}</td>
             </tr>
             <tr>
-                <td><strong>Diskon @if($sale->discount_percentage) (15%) @endif</strong></td>
+                <td><strong>Diskon @if($sale->discount_percentage) @endif</strong></td>
                 <td>{{ format_currency($sale->discount_amount) }}</td>
             </tr>
             @if($sale->tax_percentage)
@@ -119,7 +119,7 @@
         <!-- Payment Information -->
         <p>Pembayaran mohon ditransfer ke:</p>
         <p>
-            Pande Nyaman Putra Widiantara<br>
+            Pande Nyoman Putra Widiantara<br>
             Bank: BCA<br>
             No. Rek: 4160732682
         </p>
@@ -130,9 +130,9 @@
         <!-- Signatures -->
         <table class="summary" style="border-collapse: collapse;">
             <tr>
-                <td style="text-align: center;"><strong>Disiapkan oleh</strong></td>
-                <td style="text-align: center;"><strong>Disetujui oleh</strong></td> 
-                <td style="text-align: center;"><strong>Dikirim oleh</strong></td> 
+                <td style="text-align: center; width: 33%;"><strong>Penerima</strong></td>
+                <td style="text-align: center; width: 33%;"><strong>Disetujui oleh</strong></td> 
+                <td style="text-align: center; width: 33%;"><strong>Dikirim oleh</strong></td> 
             </tr>
             <tr>
                 <td>&nbsp;<br><br><br></td>
